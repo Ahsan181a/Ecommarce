@@ -33,17 +33,17 @@
     </section>
     <!-- Content page -->
 <div class="container">
-            <form class="form-horizontal" role="form">
+            <form class="form-group" role="form">
                 <div class="form-group">
-                    <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                    <label for="firstName" class="col-sm-3 control-label"> Name</label>
                     <div class="col-sm-9">
                         <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                    <label for="lastName" class="col-sm-3 control-label">phone</label>
                     <div class="col-sm-9">
-                        <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>
+                        <input type="phoneNumber" id="mobile_no" name="mobile_no" placeholder="Last Name" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
@@ -61,7 +61,7 @@
                 <div class="form-group">
                     <label for="password" class="col-sm-3 control-label">Confirm Password*</label>
                     <div class="col-sm-9">
-                        <input type="password" id="password" placeholder="Password" class="form-control">
+                        <input type="password" id="confirmation_password" name="confirmation_password" placeholder="Password" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
@@ -70,7 +70,10 @@
                         <input type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Register</button>
+                  <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Register">
+                                <i class="fa fa-user"></i> Have your Account ?<a href="{{route('customer.login')}}"><span>Login Here</span></a>
+                            </div>
             </form> <!-- /form -->
         </div> <!-- ./container -->
     <script>   
@@ -92,15 +95,6 @@
         rules:
         {   
             password: "required",
-            birthDate: "required",
-            weight: {
-                required:true,
-                number:true
-            },
-            height:  {
-                required:true,
-                number:true
-            },
             email: {
                 required: true,
                 email: true
@@ -115,21 +109,13 @@
                 password: {
                     required: " Please enter password"
                 },
-                birthDate: {
-                    required: " Please enter birthdate"
-                },
+                
                 email: {
                     required: ' Please enter email',
                     email: ' Please enter valid email'
                 },
-                weight: {
-                    required: " Please enter your weight",
-                    number: " Only numbers allowed"
-                },
-                height: {
-                    required: " Please enter your height",
-                    number: " Only numbers allowed"
-                },
+                
+                
             }
             
     });

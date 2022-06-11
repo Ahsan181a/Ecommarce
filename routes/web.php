@@ -3,6 +3,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/abc','FrontentController@index')->name('home');
+
+Route::group(['middleware'=>'Auth'],function(){
+
 Route::prefix('users')->group(function(){
     Route::get('/view', 'Backend\UserController@view')->name('users/view');
     Route::get('/add', 'Backend\UserController@add')->name('users.add');
@@ -11,6 +14,9 @@ Route::prefix('users')->group(function(){
     Route::post('/update/{id}', 'Backend\UserController@update')->name('users.update');
     Route::get('/delete/{id}', 'Backend\UserController@delete')->name('users.delete');
 });
+
+});
+
 Route::prefix('profile')->group(function(){
     Route::get('/view', 'Backend\ProfileController@view')->name('profile.view');
     Route::get('/add', 'Backend\ProfileController@add')->name('profile.add');
@@ -50,12 +56,12 @@ Route::prefix('logos')->group(function(){
     Route::get('/delete/{id}', 'Backend\LogoController@delete')->name('logos.delete');
 });
 Route::prefix('slider')->group(function(){
-    Route::get('/view', 'Backend\SliController@view')->name('slider.view');
-    Route::get('/add', 'Backend\SliController@add')->name('slider.add');
-    Route::post('/store', 'Backend\SliController@store')->name('slider.store');
-    Route::get('/edit/{id}', 'Backend\SliController@edit')->name('slider.edit');
-    Route::post('/update/{id}', 'Backend\SliController@update')->name('slider.update');
-    Route::get('/delete/{id}', 'Backend\SliController@delete')->name('slider.delete');
+    Route::get('/view', 'Backend\SliderController@view')->name('slider.view');
+    Route::get('/add', 'Backend\SliderController@add')->name('slider.add');
+    Route::post('/store', 'Backend\SliderController@store')->name('slider.store');
+    Route::get('/edit/{id}', 'Backend\SliderController@edit')->name('slider.edit');
+    Route::post('/update/{id}', 'Backend\SliderController@update')->name('slider.update');
+    Route::get('/delete/{id}', 'Backend\SliderController@delete')->name('slider.delete');
 });
 Route::prefix('categorys')->group(function(){
     Route::get('/view', 'Backend\CategoryController@view')->name('categorys.view');
